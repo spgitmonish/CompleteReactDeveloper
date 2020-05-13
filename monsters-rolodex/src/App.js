@@ -30,6 +30,10 @@ class App extends Component {
     }   
   } 
 
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value });
+  }
+
   // As soon state changes, react "bot" calls this render function automatically
   render() {
     // Destructuring: Pulling individual properties
@@ -44,7 +48,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <SearchBox placeholder='search monsters' handleChange={e => this.setState({ searchField: e.target.value })}/>
+        <h1>Monsters Rolodex</h1>
+        <SearchBox placeholder='search monsters' handleChange={this.handleChange}/>
         <CardList monsters={ filteredMonsters } />
       </div>
     );
